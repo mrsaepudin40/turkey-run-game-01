@@ -266,15 +266,15 @@ export function createRenderer(canvas) {
     ctx.beginPath();
     ctx.ellipse(cx, base - 16 * squash, 16, 12 * squash, -0.4, 0, Math.PI * 2);
     ctx.fill();
-    // Legs, running.
+    // Legs, running: feet stay under the body, even mid-jump.
     const swing = Math.sin(turkey.runPhase) * 8;
     ctx.strokeStyle = '#f2a93b';
     ctx.lineWidth = 4;
     ctx.beginPath();
     ctx.moveTo(cx - 2, base - 4);
-    ctx.lineTo(cx - 2 + swing, FIELD.groundY + 2);
+    ctx.lineTo(cx - 2 + swing, base + 8);
     ctx.moveTo(cx + 12, base - 4);
-    ctx.lineTo(cx + 12 - swing, FIELD.groundY + 2);
+    ctx.lineTo(cx + 12 - swing, base + 8);
     ctx.stroke();
     // Head, beak, wattle.
     ctx.fillStyle = PALETTE.turkeyHead;
